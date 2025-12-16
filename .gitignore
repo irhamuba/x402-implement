@@ -41,5 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Private data - DO NOT COMMIT
-data/orders.json
-data/authors.json
+/data/
