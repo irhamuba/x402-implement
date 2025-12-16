@@ -10,7 +10,7 @@ interface PaywallOverlayProps {
     authorWallet: string;
     authorName: string;
     articleId: string;
-    onPaymentSuccess: () => void;
+    onPaymentSuccess: (article?: any) => void;
 }
 
 type PaymentStep = 'idle' | 'connecting' | 'confirming' | 'processing' | 'verifying' | 'success' | 'error';
@@ -112,7 +112,8 @@ export function PaywallOverlay({
             }
 
             setStep('success');
-            setTimeout(() => onPaymentSuccess(), 500); // Faster redirect
+            // Pass the returned full article content to parent for instant update
+            setTimeout(() => onPaymentSuccess(data.article), 500); // Faster redirect
         } catch (err) {
             console.error('Payment error:', err);
             setStep('error');

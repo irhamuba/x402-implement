@@ -128,6 +128,27 @@ export async function POST(request: NextRequest) {
             success: true,
             message: 'Payment verified successfully',
             settlement: settlementResponse,
+            // Return unlocked article data immediately for realtime update
+            // Include full author object to match the expected structure in ArticlePage
+            article: {
+                id: article.id,
+                title: article.title,
+                teaser: article.teaser,
+                fullContent: article.fullContent,
+                price: article.price,
+                createdAt: article.createdAt,
+                category: article.category,
+                readTime: article.readTime,
+                author: {
+                    id: author.id,
+                    name: author.name,
+                    avatar: author.avatar,
+                    bio: author.bio,
+                    walletAddress: author.walletAddress,
+                },
+                unlocked: true,
+                isAuthor: false,
+            }
         });
 
         // Set x402 payment response header

@@ -230,7 +230,13 @@ export default function ArticlePage() {
                         authorWallet={article.author.walletAddress!}
                         authorName={article.author.name}
                         articleId={article.id}
-                        onPaymentSuccess={fetchArticle}
+                        onPaymentSuccess={(unlockedArticle) => {
+                            if (unlockedArticle) {
+                                setArticle(unlockedArticle);
+                            } else {
+                                fetchArticle();
+                            }
+                        }}
                     />
                 )}
             </div>
