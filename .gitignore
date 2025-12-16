@@ -43,3 +43,6 @@ next-env.d.ts
 # Private data - keep folder but ignore JSON files
 data/*.json
 !data/.gitkeep
+
+# Research folder (local only)
+research/
