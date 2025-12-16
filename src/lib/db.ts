@@ -51,15 +51,40 @@ interface OrdersDB {
 // Get the data directory path
 const dataDir = path.join(process.cwd(), 'data');
 
+// Default empty data structures
+const defaultData: Record<string, unknown> = {
+    'authors.json': { authors: [] },
+    'articles.json': { articles: [] },
+    'orders.json': { orders: [] }
+};
+
 // Database helper class
 class Database {
+    private async ensureDataDir(): Promise<void> {
+        try {
+            await fs.access(dataDir);
+        } catch {
+            await fs.mkdir(dataDir, { recursive: true });
+        }
+    }
+
     private async readJSON<T>(filename: string): Promise<T> {
+        await this.ensureDataDir();
         const filePath = path.join(dataDir, filename);
-        const data = await fs.readFile(filePath, 'utf-8');
-        return JSON.parse(data) as T;
+
+        try {
+            const data = await fs.readFile(filePath, 'utf-8');
+            return JSON.parse(data) as T;
+        } catch {
+            // File doesn't exist, create with default data
+            const defaultContent = defaultData[filename] || {};
+            await this.writeJSON(filename, defaultContent);
+            return defaultContent as T;
+        }
     }
 
     private async writeJSON<T>(filename: string, data: T): Promise<void> {
+        await this.ensureDataDir();
         const filePath = path.join(dataDir, filename);
         await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
     }

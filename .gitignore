@@ -40,5 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Private data - DO NOT COMMIT
-/data/
+# Private data - keep folder but ignore JSON files
+data/*.json
+!data/.gitkeep
