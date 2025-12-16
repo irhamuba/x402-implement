@@ -53,17 +53,15 @@ export function Navbar() {
 
                     {/* Right Side */}
                     <div className="flex items-center gap-3">
-                        {isConnected && (
-                            <Link
-                                href="/dashboard/write"
-                                className="hidden sm:flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white 
-                           text-sm font-semibold rounded-xl hover:bg-blue-700 transition-all
+                        <Link
+                            href="/dashboard/write"
+                            className="hidden sm:flex items-center gap-2 px-4 py-2.5 bg-blue-200 !text-slate-900 
+                           text-sm font-semibold rounded-xl hover:bg-blue-300 transition-all
                            shadow-sm hover:shadow-md"
-                            >
-                                <PenSquare className="w-4 h-4" />
-                                Publish
-                            </Link>
-                        )}
+                        >
+                            <PenSquare className="w-4 h-4" />
+                            Publish
+                        </Link>
                         <ConnectWalletButton />
 
                         {/* Mobile Menu Button */}
