@@ -6,6 +6,12 @@
 ![Ethereum Sepolia](https://img.shields.io/badge/Network-Ethereum%20Sepolia-purple)
 ![USDC](https://img.shields.io/badge/Currency-USDC-blue)
 
+## 🎬 Demo
+
+https://github.com/irhamuba/x402-implement/raw/main/demo/x402-payment-demo.mp4
+
+*Full payment flow: Browse Article → HTTP 402 → Pay USDC → Content Unlocked*
+
 ## 🌟 Features
 
 - **Pay Per Article**: No subscriptions, just pay for what you want to read
