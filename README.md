@@ -8,10 +8,11 @@
 
 ## 🎬 Demo
 
-<video src="https://github.com/irhamuba/x402-implement/raw/main/demo/x402-payment-demo.mp4" controls="controls" style="max-width: 100%;">
-</video>
+[![Watch Demo](https://github.com/irhamuba/x402-implement/raw/main/research/screenshots/01-article-locked.png)](https://github.com/irhamuba/x402-implement/raw/main/demo/x402-payment-demo.mp4)
 
-*Full payment flow: Browse Article → HTTP 402 → Pay USDC → Content Unlocked*
+> 👆 **Click the image above to watch the demo video**
+>
+> *Full payment flow: Browse Article → HTTP 402 → Pay USDC → Content Unlocked*
 
 ## 🌟 Features
 
